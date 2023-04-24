@@ -36,7 +36,7 @@ class Program
         
 
         Console.WriteLine("write a number");
-        string word = Console.ReadLine();
+        number = Console.ReadLine();
         int NumberEntered = int.Parse(number);
         Console.WriteLine($"You typed {number}");
         Console.WriteLine($"This and your magic number will Magically.,m/m.,/,/.,/m be {Number + number}");
