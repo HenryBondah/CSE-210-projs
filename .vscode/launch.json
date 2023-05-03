@@ -3,6 +3,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
             "name": "Sandbox Project",
             "type": "coreclr",
@@ -11,6 +12,19 @@
             "program": "${workspaceFolder}/sandbox/Sandbox/bin/Debug/net7.0/Sandbox.dll",
             "args": [],
             "cwd": "${workspaceFolder}/sandbox/Sandbox",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
+            "name": "abstract example",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-abstract-example",
+            "program": "${workspaceFolder}/abstract-example/bin/Debug/net7.0/abstract-example.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/abstract-example",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false
