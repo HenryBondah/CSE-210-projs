@@ -17,6 +17,6 @@ public class book{
     }
 
     public bool IsAvailable(){
-        return _avalable;
+        return _available;
     }
 }
