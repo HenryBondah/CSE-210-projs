@@ -31,6 +31,19 @@
         },
 
         {
+            "name": "quotebook",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-quotebook",
+            "program": "${workspaceFolder}/quotebook/bin/Debug/net7.0/quotebook.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/quotebook",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
+        {
             "name": "C# Prep 1",
             "type": "coreclr",
             "request": "launch",
