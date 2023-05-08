@@ -4,16 +4,17 @@ public class Board
 
     private void NicePrint(string item)
     {
-        console.WriteLine("--------------------------");
-        console.WriteLine($"{item}");
-        console.WriteLine("--------------------------");
+        Console.WriteLine("--------------------------");
+        Console.WriteLine($"{item}");
+        Console.WriteLine("--------------------------");
     }
 
     public void ShowQuote()
     {
-        foreach (Quote quote in __quotes)
+        foreach (Quote quote in _quotes)
         {
-            quote.GetQuote;
+           Console.WriteLine(quote.GetQuote());
+           Console.WriteLine(); 
         }
     }
 
@@ -38,4 +39,5 @@ public class Board
             }
         }
     }
+
 }

@@ -2,12 +2,12 @@ public class Quote
 {
     private string _author = "";
     private string _quote = "";
-    private source _source;
+    private Source _source;
 
     public Quote(string person, string Quote, Source source)
     {
         _author = person;
-        _quote = quote;
+        _quote = Quote;
         _source = source;
     }
 
@@ -22,7 +22,7 @@ public class Quote
 
     public string GetQuote()
     {
-        return $"\"{_quote}\"\n{_author} - {_source.strigify()}";
+        return $"\"{_quote}\"\n{_author} - {_source.stringify()}";
     }
 
 

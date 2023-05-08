@@ -1,11 +1,11 @@
-public class source
+public class Source
 {
     private string _name = "";
     private string _url = "";
 
-    public source(string name, string url="")
+    public Source(string name, string url="")
     {
-        _name =anme;
+        _name =name;
         _url = url;
     }
 

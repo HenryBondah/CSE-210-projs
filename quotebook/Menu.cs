@@ -9,7 +9,7 @@ public class Menu
     public void Display()
     {
         string response = "";
-        string[] option = {"A","S","Q","F","R"};
+        string[] options = {"A","S","Q","F","R"};
         while(response!="Q")
         {
             while(options.Contains(response)==false)
@@ -24,14 +24,14 @@ public class Menu
                     Environment.Exit(0);
                     break;
                 case "A":
-                    console.WriteLine("please enter  your quote: ");
-                    string quote = Consile.ReadLine() ?? string.Empty;
-                    console.WriteLine("please enter  your author: ");
-                    string author = Consile.ReadLine() ?? string.Empty;
-                    console.WriteLine("please enter  your source: ");
-                    string source = Consile.ReadLine() ?? string.Empty;
-                    console.WriteLine("please enter  your source url: ");
-                    string sourceUrl = Consile.ReadLine() ?? string.Empty;
+                    Console.WriteLine("please enter  your quote: ");
+                    string quote = Console.ReadLine() ?? string.Empty;
+                    Console.WriteLine("please enter  your author: ");
+                    string author = Console.ReadLine() ?? string.Empty;
+                    Console.WriteLine("please enter  your source: ");
+                    string source = Console.ReadLine() ?? string.Empty;
+                    Console.WriteLine("please enter  your source url: ");
+                    string sourceUrl = Console.ReadLine() ?? string.Empty;
 
                     _board.AddQuote(new Quote(author,quote,new Source(source,sourceUrl)));
                     break;
@@ -39,7 +39,7 @@ public class Menu
                     _board.ShowQuote();
                     break;
                 case "F":
-                    console.Write("Please enter your author: ");
+                    Console.Write("Please enter your author: ");
                     author = Console.ReadLine() ?? string.Empty;
                     _board.FindQuotesByAuthor(author);
                     break;
