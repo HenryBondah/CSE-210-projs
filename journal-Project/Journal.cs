@@ -17,7 +17,8 @@ public class Journal
             "What was the best part of my day?",
             "How did I see the hand of the Lord in my life today?",
             "What was the strongest emotion I felt today?",
-            "What would it be if I had one thing I could do over today?"
+            "What would it be if I had one thing I could do over today?",
+            "My Own Entry"
         };
 
         for (int i = 0; i < prompts.Count; i++)
@@ -73,7 +74,7 @@ public class Journal
         {
             foreach (Entry entry in entries)
             {
-                writer.WriteLine($"{entry.Prompt}|{entry.Response}|{entry.Date}");
+                writer.WriteLine($"{entry._Prompt}|{entry._Response}|{entry._Date}");
             }
         }
 

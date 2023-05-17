@@ -2,19 +2,19 @@ using System;
 
 class Entry
 {
-    public string Prompt { get; set; }
-    public string Response { get; set; }
-    public DateTime Date { get; set; }
+    public string _Prompt ="";
+    public string _Response ="";
+    public DateTime _Date;
 
     public Entry(string prompt, string response, DateTime date)
     {
-        Prompt = prompt;
-        Response = response;
-        Date = date;
+        _Prompt = prompt;
+        _Response = response;
+        _Date = date;
     }
 
     public override string ToString()
     {
-        return $"Prompt: {Prompt}\nResponse: {Response}\nDate: {Date}\n";
+        return $"Prompt: {_Prompt}\nResponse: {_Response}\nDate: {_Date}\n";
     }
 }

@@ -48,7 +48,7 @@ class Save
         {
             foreach (Entry entry in journal)
             {
-                writer.WriteLine($"{entry.Prompt}|{entry.Response}|{entry.Date}");
+                writer.WriteLine($"{entry._Prompt}|{entry._Response}|{entry._Date}");
             }
         }
 

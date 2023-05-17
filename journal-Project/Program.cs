@@ -31,9 +31,7 @@ class Program
                     journal.LoadJournalFromFile();
                     break;
                 case "5":
-                    return;
-                default:
-                    Console.WriteLine("Invalid option. Please try again.");
+                    Environment.Exit(0);
                     break;
             }
 
