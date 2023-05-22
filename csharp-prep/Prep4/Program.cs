@@ -13,7 +13,8 @@ class Program
             Console.Write("Enter a number (0 to quit): ");
             
             string userResponse = Console.ReadLine();
-            userNumber = int.Parse(userResponse);
+            
+            
             
             // Only add the number to the list if it is not 0
             if (userNumber != 0)
