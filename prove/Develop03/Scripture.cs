@@ -9,7 +9,7 @@ public class Scripture
         words = ConvertStringToWords(text);
     }
 
-    public ScriptureReference Reference { get; }
+    public Reference Reference { get; }
 
     public bool IsVerseDone()
     {
@@ -44,7 +44,7 @@ public class Scripture
         Console.WriteLine();
     }
 
-    private static ScriptureReference ParseReference(string reference)
+    private static Reference ParseReference(string reference)
     {
         var parts = reference.Split(' ');
         var book = parts[0];
@@ -55,13 +55,13 @@ public class Scripture
         {
             var verseRange = chapterVerse[1].Split('-');
             var verseStart = int.Parse(verseRange[0]);
-            var verseEnd = int.Parse(verseRange[1]);
-            return new ScriptureReference(book, chapter, verseStart, verseEnd);
+            var verseEnd = int.Parse(verseRange[0]);
+            return new Reference(book, chapter, verseStart, verseEnd);
         }
         else
         {
-            var verse = int.Parse(chapterVerse[1]);
-            return new ScriptureReference(book, chapter, verse);
+            var verse = int.Parse(chapterVerse[0]);
+            return new Reference(book, chapter, verse);
         }
     }
 
