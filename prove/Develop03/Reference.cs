@@ -1,35 +1,35 @@
 public class Reference
 {
-    public string Book { get; }
-    public int Chapter { get; }
-    public int VerseStart { get; }
-    public int VerseEnd { get; }
+    public string _Book =""; 
+    public int _Chapter;
+    public int _VerseStart; 
+    public int _VerseEnd; 
     
     public Reference(string book, int chapter, int verse)
     {
-        Book = book;
-        Chapter = chapter;
-        VerseStart = verse;
-        VerseEnd = verse;
+        _Book = book;
+        _Chapter = chapter;
+        _VerseStart = verse;
+        _VerseEnd = verse;
     }
     
     public Reference(string book, int chapter, int verseStart, int verseEnd)
     {
-        Book = book;
-        Chapter = chapter;
-        VerseStart = verseStart;
-        VerseEnd = verseEnd;
+        _Book = book;
+        _Chapter = chapter;
+        _VerseStart = verseStart;
+        _VerseEnd = verseEnd;
     }
     
     public string GetFormattedReference()
     {
-        if (VerseStart == VerseEnd)
+        if (_VerseStart == _VerseEnd)
         {
-            return $"{Book} {Chapter}:{VerseStart}";
+            return $"{_Book} {_Chapter}:{_VerseStart}";
         }
         else
         {
-            return $"{Book} {Chapter}:{VerseStart}-{VerseEnd}";
+            return $"{_Book} {_Chapter}:{_VerseStart}-{_VerseEnd}";
         }
     }
 }

@@ -6,11 +6,11 @@ public class Program
 
         while (!scripture.IsVerseDone())
         {
-            scripture.Display();
-                Console.WriteLine("Press Enter to continue or type 'Q' to exit.");
+           scripture.Display();
+                Console.WriteLine("Press Enter to continue or type 'Quit' to exit.");
             var input = Console.ReadLine();
 
-            if (input.ToLower() == "Q")
+            if (input == "quit")
                 break;
 
             scripture.HideRandomWord();
