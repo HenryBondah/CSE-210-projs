@@ -8,7 +8,7 @@ public abstract class Activity
     public void Start()
     {
         Console.WriteLine("Prepare to begin...");
-        Countdown(3);
+        Countdown(5);
         PerformActivity();
     }
 
