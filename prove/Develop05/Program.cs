@@ -50,7 +50,7 @@ public class Program
 
     private static void CreateNewGoal()
     {
-        Console.WriteLine("1. Normal goal");
+        Console.WriteLine("1. Simple goal");
         Console.WriteLine("2. Eternal goal");
         Console.WriteLine("3. Checklist goal");
         Console.WriteLine();
