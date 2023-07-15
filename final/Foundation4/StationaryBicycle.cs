@@ -1,30 +1,25 @@
-class StationaryBicycle : Activity
+class StationaryBicycles : Activity
 {
-    public double Speed { get; set; }
+    private double speed;
 
-    public StationaryBicycle(string type, DateTime date, int length, double speed)
-        : base(type, date, length)
+    public StationaryBicycles(DateTime date, int lengthInMinutes, double speed)
+        : base(date, lengthInMinutes)
     {
-        Speed = speed;
+        this.speed = speed;
     }
 
     public override double GetSpeed()
     {
-        return Speed;
-    }
-
-    public override double GetDistance()
-    {
-        return Speed * Length / 60;
+        return speed;
     }
 
     public override double GetPace()
     {
-        return 60 / Speed;
+        return 60.0 / speed;
     }
 
     public override string GetSummary()
     {
-        return $"{base.GetSummary()} - Distance: {GetDistance()} miles, Speed: {Speed} mph, Pace: {GetPace()} min per mile";
+        return $"{base.GetSummary()} - Speed: {speed:F1} mph, Pace: {GetPace():F1} min per mile";
     }
 }

@@ -1,15 +1,15 @@
 class Reception : Event
 {
-    public string RSVP { get; set; }
+    private string rsvpEmail;
 
-    public Reception(string title, string description, string date, string time, string address, string rsvp)
+    public Reception(string title, string description, DateTime date, TimeSpan time, Address address, string rsvpEmail)
         : base(title, description, date, time, address)
     {
-        RSVP = rsvp;
+        this.rsvpEmail = rsvpEmail;
     }
 
     public override string GetFullDetails()
     {
-        return $"{base.GetFullDetails()}\nType: Reception\nRSVP: {RSVP}";
+        return $"{base.GetFullDetails()}\nType: Reception\nRSVP Email: {rsvpEmail}";
     }
 }

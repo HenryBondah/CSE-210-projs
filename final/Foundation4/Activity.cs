@@ -1,15 +1,12 @@
-
 class Activity
 {
-    public string Type { get; set; }
-    public DateTime Date { get; set; }
-    public int Length { get; set; }
+    protected DateTime date;
+    protected int lengthInMinutes;
 
-    public Activity(string type, DateTime date, int length)
+    public Activity(DateTime date, int lengthInMinutes)
     {
-        Type = type;
-        Date = date;
-        Length = length;
+        this.date = date;
+        this.lengthInMinutes = lengthInMinutes;
     }
 
     public virtual double GetDistance()
@@ -29,6 +26,6 @@ class Activity
 
     public virtual string GetSummary()
     {
-        return $"{Date:d MMM yyyy} {Type} ({Length} min)";
+        return $"{date.ToShortDateString()} {GetType().Name} ({lengthInMinutes} min)";
     }
 }

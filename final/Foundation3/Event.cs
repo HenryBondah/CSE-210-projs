@@ -1,23 +1,23 @@
 class Event
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public string Date { get; set; }
-    public string Time { get; set; }
-    public string Address { get; set; }
+    private string title;
+    private string description;
+    private DateTime date;
+    private TimeSpan time;
+    private Address address;
 
-    public Event(string title, string description, string date, string time, string address)
+    public Event(string title, string description, DateTime date, TimeSpan time, Address address)
     {
-        Title = title;
-        Description = description;
-        Date = date;
-        Time = time;
-        Address = address;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.address = address;
     }
 
-    public virtual string GetStandardDetails()
+    public string GetStandardDetails()
     {
-        return $"Title: {Title}\nDescription: {Description}\nDate: {Date}\nTime: {Time}\nAddress: {Address}";
+        return $"Title: {title}\nDescription: {description}\nDate: {date.ToShortDateString()}\nTime: {time}\nAddress: {address.Street}, {address.City}, {address.State}";
     }
 
     public virtual string GetFullDetails()
@@ -27,6 +27,6 @@ class Event
 
     public virtual string GetShortDescription()
     {
-        return $"Type: Event\nTitle: {Title}\nDate: {Date}";
+        return $"Type: Event\nTitle: {title}\nDate: {date.ToShortDateString()}";
     }
 }
