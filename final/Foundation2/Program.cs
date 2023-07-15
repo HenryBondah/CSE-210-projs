@@ -1,37 +1,114 @@
-using System;
-
 class Program
 {
     static void Main()
     {
-        Product product1 = new Product("Product 1", "12345", 10, 2);
-        Product product2 = new Product("Product 2", "67890", 15, 3);
+        List<Order> orders = new List<Order>();
 
-        Address address1 = new Address("123 Main St", "City1", "State1", "USA");
-        Customer customer1 = new Customer("John Doe", address1);
+        bool exit = false;
+        while (!exit)
+        {
+            Console.Clear();
+            Console.WriteLine("1. Create Order");
+            Console.WriteLine("2. Display Orders");
+            Console.WriteLine("0. Exit");
+            Console.Write("Enter your choice: ");
+            string choice = Console.ReadLine();
 
-        Address address2 = new Address("456 Elm St", "City2", "State2", "Canada");
-        Customer customer2 = new Customer("Jane Smith", address2);
+            switch (choice)
+            {
+                case "1":
+                    CreateOrder(orders);
+                    break;
+                case "2":
+                    DisplayOrders(orders);
+                    break;
+                case "0":
+                    exit = true;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice! Please try again.");
+                    break;
+            }
+        }
+    }
 
-        Order order1 = new Order();
-        order1.AddProduct(product1);
-        order1.AddProduct(product2);
-        order1.Customer = customer1;
+    static void CreateOrder(List<Order> orders)
+    {
+        Console.WriteLine("Creating Order:");
 
-        Order order2 = new Order();
-        order2.AddProduct(product2);
-        order2.Customer = customer2;
+        Console.Write("Enter customer name: ");
+        string customerName = Console.ReadLine();
 
-        Console.WriteLine("Order 1:");
-        Console.WriteLine(order1.GetPackingLabel());
-        Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine($"Total cost: ${order1.CalculateTotalCost()}");
+        Console.Write("Enter customer address - Street Address: ");
+        string streetAddress = Console.ReadLine();
 
-        Console.WriteLine();
+        Console.Write("Enter customer address - City: ");
+        string city = Console.ReadLine();
 
-        Console.WriteLine("Order 2:");
-        Console.WriteLine(order2.GetPackingLabel());
-        Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine($"Total cost: ${order2.CalculateTotalCost()}");
+        Console.Write("Enter customer address - State/Province: ");
+        string stateProvince = Console.ReadLine();
+
+        Console.Write("Enter customer address - Country: ");
+        string country = Console.ReadLine();
+
+        Address address = new Address(streetAddress, city, stateProvince, country);
+        Customer customer = new Customer(customerName, address);
+        Order order = new Order(customer);
+
+        bool addProducts = true;
+        while (addProducts)
+        {
+            Console.WriteLine("\nEnter Product Details:");
+
+            Console.Write("Product Name: ");
+            string productName = Console.ReadLine();
+
+            Console.Write("Product ID: ");
+            string productId = Console.ReadLine();
+
+            Console.Write("Product Price: ");
+            double price = double.Parse(Console.ReadLine());
+
+            Console.Write("Product Quantity: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Product product = new Product(productName, productId, price, quantity);
+            order.AddProduct(product);
+
+            Console.WriteLine("Product added to the order!");
+
+            Console.Write("\nAdd another product? (Y/N): ");
+            string choice = Console.ReadLine();
+            addProducts = (choice.ToUpper() == "Y");
+        }
+
+        orders.Add(order);
+        Console.WriteLine("\nOrder created successfully!");
+
+        Console.WriteLine("\nPress any key to continue...");
+        Console.ReadKey();
+    }
+
+    static void DisplayOrders(List<Order> orders)
+    {
+        Console.Clear();
+        if (orders.Count == 0)
+        {
+            Console.WriteLine("No orders available.");
+        }
+        else
+        {
+            Console.WriteLine("Orders:");
+            foreach (Order order in orders)
+            {
+                Console.WriteLine(order.GetPackingLabel());
+                Console.WriteLine(order.GetShippingLabel());
+                Console.WriteLine("Total Price: $" + order.CalculateTotalPrice());
+                Console.WriteLine("----------------------------------");
+            }
+        }
+
+        Console.WriteLine("\nPress any key to continue...");
+        Console.ReadKey();
     }
 }

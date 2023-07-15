@@ -1,46 +1,48 @@
+
 class Order
 {
-    public List<Product> Products { get; }
-    public Customer Customer { get; set; }
+    private List<Product> products;
+    private Customer customer;
 
-    public Order()
+    public Order(Customer customer)
     {
-        Products = new List<Product>();
+        this.customer = customer;
+        products = new List<Product>();
     }
 
     public void AddProduct(Product product)
     {
-        Products.Add(product);
+        products.Add(product);
     }
 
-    public double CalculateTotalCost()
+    public double CalculateTotalPrice()
     {
-        double totalCost = 0;
+        double totalPrice = 0;
 
-        foreach (Product product in Products)
+        foreach (Product product in products)
         {
-            totalCost += product.Price * product.Quantity;
+            totalPrice += product.CalculatePrice();
         }
 
-        if (Customer.Address.IsInUSA())
+        if (customer.IsInUSA())
         {
-            totalCost += 5;
+            totalPrice += 5; // USA shipping cost
         }
         else
         {
-            totalCost += 35;
+            totalPrice += 35; // International shipping cost
         }
 
-        return totalCost;
+        return totalPrice;
     }
 
     public string GetPackingLabel()
     {
-        string packingLabel = "";
+        string packingLabel = $"Packing Label for {customer.GetName()}:\n";
 
-        foreach (Product product in Products)
+        foreach (Product product in products)
         {
-            packingLabel += $"Product: {product.Name}, Product ID: {product.ProductID}\n";
+            packingLabel += $"- {product.GetName()}, ID: {product.GetProductId()}\n";
         }
 
         return packingLabel;
@@ -48,6 +50,9 @@ class Order
 
     public string GetShippingLabel()
     {
-        return $"Customer Name: {Customer.Name}\nAddress: {Customer.Address.GetFullAddress()}";
+        string shippingLabel = $"Shipping Label for {customer.GetName()}:\n";
+        shippingLabel += customer.GetAddress().GetFullAddress();
+
+        return shippingLabel;
     }
 }

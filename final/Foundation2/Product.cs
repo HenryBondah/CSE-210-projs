@@ -1,15 +1,35 @@
 class Product
 {
-    public string Name { get; set; }
-    public string ProductID { get; set; }
-    public double Price { get; set; }
-    public int Quantity { get; set; }
+    private string name;
+    private string productId;
+    private double price;
+    private int quantity;
 
-    public Product(string name, string productID, double price, int quantity)
+    public Product(string name, string productId, double price, int quantity)
     {
-        Name = name;
-        ProductID = productID;
-        Price = price;
-        Quantity = quantity;
+        this.name = name;
+        this.productId = productId;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public double CalculatePrice()
+    {
+        return price * quantity;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public string GetProductId()
+    {
+        return productId;
+    }
+
+    public int GetQuantity()
+    {
+        return quantity;
     }
 }

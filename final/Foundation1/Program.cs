@@ -6,15 +6,15 @@ class Program
     {
         List<Video> videos = new List<Video>();
 
-        Video video1 = new Video("Video 1", "Author 1", 120);
+        Video video1 = new Video("An easy way of opening a Bottle", "Dean", 120);
         video1.AddComment("User1", "Nice video Dean!");
-        video1.AddComment("User2", "Loving CSE230!");
+        video1.AddComment("User2", "Hahahah Funny");
         videos.Add(video1);
 
-        Video video2 = new Video("Video 2", "Author 2", 180);
+        Video video2 = new Video("How to act smart in every thing", "Henry", 180);
         video2.AddComment("User3", "Informative video!");
         video2.AddComment("User4", "Well explained!");
-        video2.AddComment("User5", "Liked it!");
+        video2.AddComment("User5", "Love it!");
         videos.Add(video2);
 
         foreach (Video video in videos)
